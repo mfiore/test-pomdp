@@ -1,7 +1,7 @@
 build/Debug/GNU-Linux-x86/main.o: main.cpp ../pomdp/Pomdp.h \
  ../pomdp/VariableSet.h ../pomdp/PriorityQueue.h ../pomdp/NestedLoop.h \
  ../../devel/src/eigen-eigen-b30b87236a1b/StringOperations.h \
- ../pomdp/PriorityQueue.h ../pomdp/Hmdp.h ../pomdp/Mdp.h \
+ ../pomdp/PriorityQueue.h ../pomdp/Hmmdp.h ../pomdp/Pomdp.h \
  ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/Dense \
  ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/Core \
  ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/src/Core/util/DisableStupidWarnings.h \
@@ -223,10 +223,9 @@ build/Debug/GNU-Linux-x86/main.o: main.cpp ../pomdp/Pomdp.h \
  ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h \
  ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h \
  ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h \
- ../pomdp/WashLaundry.h ../pomdp/Hmdp.h ../pomdp/GetLaundry.h \
+ ../pomdp/WashLaundry.h ../pomdp/Hmmdp.h ../pomdp/GetLaundry.h \
  ../pomdp/StartWashingMachine.h ../pomdp/StartWashingMachine.h \
- ../pomdp/GetLaundry.h ../pomdp/VariableSet.h ../pomdp/WashLaundryFull.h \
- ../pomdp/Pomdp.h
+ ../pomdp/GetLaundry.h ../pomdp/VariableSet.h ../pomdp/WashLaundryFull.h
 
 ../pomdp/Pomdp.h:
 
@@ -240,9 +239,9 @@ build/Debug/GNU-Linux-x86/main.o: main.cpp ../pomdp/Pomdp.h \
 
 ../pomdp/PriorityQueue.h:
 
-../pomdp/Hmdp.h:
+../pomdp/Hmmdp.h:
 
-../pomdp/Mdp.h:
+../pomdp/Pomdp.h:
 
 ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/Dense:
 
@@ -688,7 +687,7 @@ build/Debug/GNU-Linux-x86/main.o: main.cpp ../pomdp/Pomdp.h \
 
 ../pomdp/WashLaundry.h:
 
-../pomdp/Hmdp.h:
+../pomdp/Hmmdp.h:
 
 ../pomdp/GetLaundry.h:
 
@@ -701,5 +700,3 @@ build/Debug/GNU-Linux-x86/main.o: main.cpp ../pomdp/Pomdp.h \
 ../pomdp/VariableSet.h:
 
 ../pomdp/WashLaundryFull.h:
-
-../pomdp/Pomdp.h:
