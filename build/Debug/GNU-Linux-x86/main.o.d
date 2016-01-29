@@ -1,8 +1,7 @@
 build/Debug/GNU-Linux-x86/main.o: main.cpp ../pomdp/Pomdp.h \
  ../pomdp/VariableSet.h ../pomdp/PriorityQueue.h ../pomdp/NestedLoop.h \
- ../../devel/src/eigen-eigen-b30b87236a1b/StringOperations.h \
- ../pomdp/PriorityQueue.h ../pomdp/Hmdp.h ../pomdp/Mdp.h \
- ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/Dense \
+ ../pomdp/StringOperations.h ../pomdp/PriorityQueue.h ../pomdp/Hmdp.h \
+ ../pomdp/Mdp.h ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/Dense \
  ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/Core \
  ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/src/Core/util/DisableStupidWarnings.h \
  ../../devel/src/eigen-eigen-b30b87236a1b/Eigen/src/Core/util/Macros.h \
@@ -226,7 +225,7 @@ build/Debug/GNU-Linux-x86/main.o: main.cpp ../pomdp/Pomdp.h \
  ../pomdp/WashLaundry.h ../pomdp/Hmdp.h ../pomdp/GetLaundry.h \
  ../pomdp/StartWashingMachine.h ../pomdp/StartWashingMachine.h \
  ../pomdp/GetLaundry.h ../pomdp/VariableSet.h ../pomdp/WashLaundryFull.h \
- ../pomdp/Pomdp.h
+ ../pomdp/Pomdp.h ../pomdp/TakeObject.h
 
 ../pomdp/Pomdp.h:
 
@@ -236,7 +235,7 @@ build/Debug/GNU-Linux-x86/main.o: main.cpp ../pomdp/Pomdp.h \
 
 ../pomdp/NestedLoop.h:
 
-../../devel/src/eigen-eigen-b30b87236a1b/StringOperations.h:
+../pomdp/StringOperations.h:
 
 ../pomdp/PriorityQueue.h:
 
@@ -703,3 +702,5 @@ build/Debug/GNU-Linux-x86/main.o: main.cpp ../pomdp/Pomdp.h \
 ../pomdp/WashLaundryFull.h:
 
 ../pomdp/Pomdp.h:
+
+../pomdp/TakeObject.h:
