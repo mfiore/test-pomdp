@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
+CND_PLATFORM=GNU-Linux
 CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -52,13 +52,13 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=../pomdp/dist/Debug/GNU-Linux-x86/libpomdp.a
+LDLIBSOPTIONS=../pomdp/dist/Debug/GNU-Linux/libpomdp.a
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/test-pomdp
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/test-pomdp: ../pomdp/dist/Debug/GNU-Linux-x86/libpomdp.a
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/test-pomdp: ../pomdp/dist/Debug/GNU-Linux/libpomdp.a
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/test-pomdp: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
