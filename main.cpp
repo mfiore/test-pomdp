@@ -14,9 +14,9 @@
 #include "PriorityQueue.h"
 #include "Hmdp.h"
 #include "Mmdp.h"
+#include "ReorderTable.h"
 
 #include "Saphari.h"
-
 using namespace std;
 
 /*
@@ -25,28 +25,39 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-    cout<<"Prova\n";
-    Mmdp saphari_mmdp;
-    saphari_mmdp.agent_hmpd_["agent1"]=new Saphari();
-    saphari_mmdp.agent_hmpd_["agent2"]=new Saphari();
+    cout << "Prova\n";
+//        Mmdp saphari_mmdp;
+//        saphari_mmdp.agent_hmpd_["agent1"]=new AssembleBracket();
+//        saphari_mmdp.agent_hmpd_["agent2"]=new AssembleBracket();
+    //    
+//        saphari_mmdp.create("agent1_assemble_bracket1_surface1-agent2_assemble_bracket2_surface2",true,true);
+    Saphari ab;
+    ab.create("agent1_saphari",true,true);
+    ab.assignParametersFromActionName("agent1_saphari");
     
-    saphari_mmdp.create("saphari",false,true);
+
     
-    VariableSet initial_state;
-    map<string,string> inital_set;
-    inital_set["agent1_isAt"]="table";
-    inital_set["agent2_isAt"]="table";
-    inital_set["bracket1_isAt"]="table";
-    inital_set["bracket2_isAt"]="table";
-    inital_set["bracket3_isAt"]="table";
-    inital_set["gluebottle_isAt"]="table";
-    inital_set["surfaced1_status"]="none";
-    inital_set["surfaced2_status"]="none";
-    inital_set["surfaced3_status"]="none";
+//    Mmdp reorder_table;
+//    reorder_table.agent_hmpd_["agent1"] = new ReorderTable();
+//    reorder_table.agent_hmpd_["agent2"] = new ReorderTable();
+//
+//    reorder_table.create("agent1_reorder_table-agent2_reorder_table", true, true);
+    cout<<"done\n";
+        VariableSet initial_state;
+        map<string, string> inital_set;
+        inital_set["agent1_isAt"] = "table";
+        inital_set["agent2_isAt"] = "table";
+        inital_set["bracket1_isAt"] = "table";
+        inital_set["bracket2_isAt"] = "table";
+        inital_set["bracket3_isAt"] = "table";
+        inital_set["gluebottle_isAt"] = "table";
+        inital_set["surface1_status"] = "none";
+        inital_set["surface2_status"] = "none";
+        inital_set["surface3_status"] = "none";
     
-    initial_state.set=inital_set;
-//    take_object.simulate(2,initial_state);
-//    
+        initial_state.set = inital_set;
+        ab.simulate(12,initial_state);
+    //    
     return 0;
 }
 
