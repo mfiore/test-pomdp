@@ -221,10 +221,10 @@ build/Debug/GNU-Linux/main.o: main.cpp ../pomdp/Pomdp.h \
  ../../devel/src/eigen/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h \
  ../../devel/src/eigen/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h \
  ../../devel/src/eigen/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h \
- ../pomdp/Mmdp.h ../pomdp/Hmdp.h ../pomdp/Wait.h ../pomdp/Saphari.h \
- ../pomdp/AssembleBracket.h ../pomdp/CleanSurface.h \
- ../pomdp/MdpBasicActions.h ../pomdp/GlueSurface.h \
- ../pomdp/AttachBracket.h ../pomdp/GetObject.h
+ ../pomdp/Mmdp.h ../pomdp/Hmdp.h ../pomdp/Wait.h ../pomdp/ReorderTable.h \
+ ../pomdp/TakeObject.h ../pomdp/MdpBasicActions.h ../pomdp/PlaceObject.h \
+ ../pomdp/Saphari.h ../pomdp/AssembleBracket.h ../pomdp/CleanSurface.h \
+ ../pomdp/GlueSurface.h ../pomdp/GetObject.h ../pomdp/AttachBracket.h
 
 ../pomdp/Pomdp.h:
 
@@ -690,16 +690,22 @@ build/Debug/GNU-Linux/main.o: main.cpp ../pomdp/Pomdp.h \
 
 ../pomdp/Wait.h:
 
+../pomdp/ReorderTable.h:
+
+../pomdp/TakeObject.h:
+
+../pomdp/MdpBasicActions.h:
+
+../pomdp/PlaceObject.h:
+
 ../pomdp/Saphari.h:
 
 ../pomdp/AssembleBracket.h:
 
 ../pomdp/CleanSurface.h:
 
-../pomdp/MdpBasicActions.h:
-
 ../pomdp/GlueSurface.h:
 
-../pomdp/AttachBracket.h:
-
 ../pomdp/GetObject.h:
+
+../pomdp/AttachBracket.h:

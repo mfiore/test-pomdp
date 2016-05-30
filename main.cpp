@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
     //    
 //        saphari_mmdp.create("agent1_assemble_bracket1_surface1-agent2_assemble_bracket2_surface2",true,true);
     Saphari ab;
-    ab.create("agent1_saphari",true,true);
+    ab.create("agent1_saphari",false,true);
     ab.assignParametersFromActionName("agent1_saphari");
     
 
@@ -55,8 +55,10 @@ int main(int argc, char** argv) {
         inital_set["surface2_status"] = "none";
         inital_set["surface3_status"] = "none";
     
+        ab.printQValues(initial_state);
         initial_state.set = inital_set;
-        ab.simulate(12,initial_state);
+//        ab.rewardFunction(initial_state,"agent_assemble_bracket2_surface2");
+        ab.simulate(30,initial_state);
     //    
     return 0;
 }
