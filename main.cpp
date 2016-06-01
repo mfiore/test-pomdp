@@ -27,10 +27,10 @@ using namespace std;
 int main(int argc, char** argv) {
     cout << "Prova\n";
     Mmdp saphari_mmdp;
-    saphari_mmdp.agent_hmpd_["agent1"] = new CleanSurface();
-    saphari_mmdp.agent_hmpd_["agent2"] = new GlueSurface();
+    saphari_mmdp.agent_hmpd_["agent0"] = new CleanSurface();
+    saphari_mmdp.agent_hmpd_["agent1"] = new GlueSurface();
     //    
-    saphari_mmdp.create("agent1_clean_surface1-agent2_glue_surface2", true, false);
+    saphari_mmdp.create("agent0_clean_surface1-agent1_glue_surface2", true, true);
     //    Saphari ab;
     //    ab.create("agent1_saphari",false,true);
     //    ab.assignParametersFromActionName("agent1_saphari");
