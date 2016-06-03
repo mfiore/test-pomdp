@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
     saphari_mmdp.agent_hmpd_["agent0"] = new GlueSurface();
     saphari_mmdp.agent_hmpd_["agent1"] = new GlueSurface();
     //    
-    saphari_mmdp.create("agent0_glue_surface1-agent1_glue_surface2", false, false);
+    saphari_mmdp.create("agent0_glue_surface1-agent1_glue_surface2", true, false);
     //    Saphari ab;
     //    ab.create("agent1_saphari",false,true);
     //    ab.assignParametersFromActionName("agent1_saphari");
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
     initial_state.set = inital_set;
  
     saphari_mmdp.printQValues(initial_state);
-
+    
     saphari_mmdp.simulate(12, initial_state);
     //    
     return 0;
