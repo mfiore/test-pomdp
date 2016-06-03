@@ -27,10 +27,10 @@ using namespace std;
 int main(int argc, char** argv) {
     cout << "Prova\n";
     Mmdp saphari_mmdp;
-    saphari_mmdp.agent_hmpd_["agent0"] = new CleanSurface();
+    saphari_mmdp.agent_hmpd_["agent0"] = new GlueSurface();
     saphari_mmdp.agent_hmpd_["agent1"] = new GlueSurface();
     //    
-    saphari_mmdp.create("agent0_clean_surface1-agent1_glue_surface2", true, true);
+    saphari_mmdp.create("agent0_glue_surface1-agent1_glue_surface2", false, false);
     //    Saphari ab;
     //    ab.create("agent1_saphari",false,true);
     //    ab.assignParametersFromActionName("agent1_saphari");
@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
     inital_set["bracket2_isAt"] = "table";
     inital_set["bracket3_isAt"] = "table";
     inital_set["gluebottle_isAt"] = "table";
-    inital_set["surface1_status"] = "none";
+    inital_set["surface1_status"] = "cleaned";
     inital_set["surface2_status"] = "cleaned";
     inital_set["surface3_status"] = "none";
 
