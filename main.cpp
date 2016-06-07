@@ -15,7 +15,6 @@
 #include "Hmdp.h"
 #include "Mmdp.h"
 #include "ReorderTable.h"
-
 #include "Saphari.h"
 using namespace std;
 
@@ -30,7 +29,7 @@ int main(int argc, char** argv) {
     saphari_mmdp.agent_hmpd_["agent0"] = new GlueSurface();
     saphari_mmdp.agent_hmpd_["agent1"] = new GlueSurface();
     //    
-    saphari_mmdp.create("agent1_glue_surface1-agent2_glue_surface2", false, false);
+    saphari_mmdp.create("agent1_glue_surface1-agent_glue_surface2", true, true);
     //    Saphari ab;
     //    ab.create("agent1_saphari",false,true);
     //    ab.assignParametersFromActionName("agent1_saphari");
@@ -45,8 +44,8 @@ int main(int argc, char** argv) {
     cout << "done\n";
     VariableSet initial_state;
     map<string, string> inital_set;
-    inital_set["agent1_isAt"] = "table";
-    inital_set["agent2_isAt"] = "surface1";
+    inital_set["agent1_isAt"] = "surface1";
+    inital_set["agent2_isAt"] = "table";
     inital_set["bracket1_isAt"] = "table";
     inital_set["bracket2_isAt"] = "table";
     inital_set["bracket3_isAt"] = "table";
@@ -57,9 +56,17 @@ int main(int argc, char** argv) {
 
     initial_state.set = inital_set;
  
+    
     saphari_mmdp.printQValues(initial_state);
-    
-    
+//    saphari_mmdp.printRewardFunction();
+//    PairStateAction p;
+//    VariableSet para=saphari_mmdp.convertToParametrizedState(initial_state);
+//    p.first=saphari_mmdp.mapStateEnum.at(para);
+//    p.second="agentp0_get_bracketp0-agentp1_wait";
+//    StateProb stateprob=saphari_mmdp.transition[p];
+//    for (auto s:stateprob) {
+//        VariableSet v=saphari_mmdp.vecStateEnum[s.first];
+//    }
     saphari_mmdp.simulate(5, initial_state);
     //    
     return 0;
