@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
     saphari_mmdp.agent_hmpd_["agent0"] = new GlueSurface();
     saphari_mmdp.agent_hmpd_["agent1"] = new GlueSurface();
     //    
-    saphari_mmdp.create("agent1_glue_surface1-agent_glue_surface2", true, true);
+    saphari_mmdp.create("agent1_glue_surface1-agent2_glue_surface2", false, false);
     //    Saphari ab;
     //    ab.create("agent1_saphari",false,true);
     //    ab.assignParametersFromActionName("agent1_saphari");
@@ -67,7 +67,8 @@ int main(int argc, char** argv) {
 //    for (auto s:stateprob) {
 //        VariableSet v=saphari_mmdp.vecStateEnum[s.first];
 //    }
-    saphari_mmdp.simulate(5, initial_state);
+//    saphari_mmdp.enumerateFunctions("prova.pomdp");
+    saphari_mmdp.simulate(7, initial_state);
     //    
     return 0;
 }
