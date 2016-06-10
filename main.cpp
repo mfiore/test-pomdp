@@ -26,10 +26,10 @@ using namespace std;
 int main(int argc, char** argv) {
     cout << "Prova\n";
     Mmdp saphari_mmdp;
-    saphari_mmdp.agent_hmpd_["agent0"] = new GlueSurface();
-    saphari_mmdp.agent_hmpd_["agent1"] = new GlueSurface();
+    saphari_mmdp.agent_hmpd_["agent0"] = new AssembleBracket();
+    saphari_mmdp.agent_hmpd_["agent1"] = new AssembleBracket();
     //    
-    saphari_mmdp.create("agent1_glue_surface1-agent2_glue_surface2", false, false);
+    saphari_mmdp.create("agent1_assemble_bracket1_surface1-agent2_assemble_bracket2_surface2", false, false);
     //    Saphari ab;
     //    ab.create("agent1_saphari",false,true);
     //    ab.assignParametersFromActionName("agent1_saphari");
@@ -44,14 +44,14 @@ int main(int argc, char** argv) {
     cout << "done\n";
     VariableSet initial_state;
     map<string, string> inital_set;
-    inital_set["agent1_isAt"] = "surface1";
+    inital_set["agent1_isAt"] = "table";
     inital_set["agent2_isAt"] = "table";
     inital_set["bracket1_isAt"] = "table";
     inital_set["bracket2_isAt"] = "table";
     inital_set["bracket3_isAt"] = "table";
     inital_set["gluebottle_isAt"] = "table";
     inital_set["surface1_status"] = "cleaned";
-    inital_set["surface2_status"] = "cleaned";
+    inital_set["surface2_status"] = "none";
     inital_set["surface3_status"] = "none";
 
     initial_state.set = inital_set;
