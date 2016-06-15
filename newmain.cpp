@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
  
     
     
-    saphari_mmdp.printQValues(initial_state);
+//    saphari_mmdp.printQValues(initial_state);
 //    saphari_mmdp.printRewardFunction();
 //    PairStateAction p;
 //    VariableSet para = saphari_mmdp.convertToParametrizedState(initial_state);
@@ -74,15 +74,16 @@ int main(int argc, char** argv) {
 //    int i=saphari_mmdp.mapStateEnum[para];
 //    
 //    p.first = saphari_mmdp.mapStateEnum.at(para);
-//    p.second = "agentp0_get_gluebottle-agentp1_wait";
-//    pair<vector<string>, set<string> > r=saphari_mmdp.getSubMdpName(p.second);
-//    Hmdp* h=saphari_mmdp.hierarchy_map_[r.first[0]];
+//    p.second = "agentp0_move_surfacep0-agentp1_wait";
+////    pair<vector<string>, set<string> > r=saphari_mmdp.getSubMdpName(p.second);
+////    Hmdp* h=saphari_mmdp.hierarchy_map_[r.first[0]];
 // 
-//    map<VariableSet,double> stateprob = h->getHierarchicTransition(initial_state);
+////    map<VariableSet,double> stateprob = h->getHierarchicTransition(initial_state,&saphari_mmdp);
 //    StateProb stateprob=saphari_mmdp.transition[p];
+//
 //    for (auto s : stateprob) {
-//        VariableSet v = saphari_mmdp.vecStateEnum[s.first];
-//        VariableSet v=s.first;
+////        VariableSet v=s.first;
+//     
 //        VariableSet v=saphari_mmdp.vecStateEnum[s.first];
 //        cout<<v.toString();
 //    }
