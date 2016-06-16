@@ -23,21 +23,39 @@
 #include "Mmdp.h"
 #include "ReorderTable.h"
 #include "Saphari.h"
-using namespace std;
 
+#include <MmdpManager.cpp>
+
+#include "AssembleBracket.h"
+#include "AttachBracket.h"
+#include "GetObject.h"
+#include "CleanSurface.h"
+#include  "GlueSurface.h"
+
+using namespace std;
 
 /*
  * 
  */
 int main(int argc, char** argv) {
-   cout << "Prova\n";
-   
-    Mmdp saphari_mmdp;
-    saphari_mmdp.agent_hmpd_["agent0"] = new GlueSurface();
-    saphari_mmdp.agent_hmpd_["agent1"] = new GlueSurface();
+    cout << "Prova\n";
+
+    map<string, Hmdp*> hmdp_map;
+    hmdp_map["assemble"] = new AssembleBracket();
+    hmdp_map["clean"] = new CleanSurface();
+    hmdp_map["glue"] = new GlueSurface();
+    hmdp_map["get"] = new GetObject();
+    hmdp_map["apply"] = new AttachBracket();
+    hmdp_map["wait"] = new Wait();
+    MmdpManager manager(hmdp_map);
+
+
+    Mmdp saphari_mmdp(&manager);
+    saphari_mmdp.agent_hmpd_["agent0"] = new Saphari();
+    saphari_mmdp.agent_hmpd_["agent1"] = new Saphari();
     //    
-    
-    saphari_mmdp.create("agent1_glue_surface2-agent2_glue_surface1", false, false);
+
+    saphari_mmdp.create("agent1_saphari-agent2_saphari", false, true);
     //    Saphari ab;
     //    ab.create("agent1_saphari",false,true);
     //    ab.assignParametersFromActionName("agent1_saphari");
@@ -54,7 +72,7 @@ int main(int argc, char** argv) {
     map<string, string> inital_set;
     inital_set["agent1_isAt"] = "table";
     inital_set["agent2_isAt"] = "table";
-    inital_set["bracket1_isAt"] = "surface3";
+    inital_set["bracket1_isAt"] = "table";
     inital_set["bracket2_isAt"] = "table";
     inital_set["bracket3_isAt"] = "table";
     inital_set["gluebottle_isAt"] = "table";
@@ -63,34 +81,34 @@ int main(int argc, char** argv) {
     inital_set["surface3_status"] = "none";
 
     initial_state.set = inital_set;
- 
-    
-    
-//    saphari_mmdp.printQValues(initial_state);
-//    saphari_mmdp.printRewardFunction();
-//    PairStateAction p;
-//    VariableSet para = saphari_mmdp.convertToParametrizedState(initial_state);
-//    
-//    int i=saphari_mmdp.mapStateEnum[para];
-//    
-//    p.first = saphari_mmdp.mapStateEnum.at(para);
-//    p.second = "agentp0_move_surfacep0-agentp1_wait";
-////    pair<vector<string>, set<string> > r=saphari_mmdp.getSubMdpName(p.second);
-////    Hmdp* h=saphari_mmdp.hierarchy_map_[r.first[0]];
-// 
-////    map<VariableSet,double> stateprob = h->getHierarchicTransition(initial_state,&saphari_mmdp);
-//    StateProb stateprob=saphari_mmdp.transition[p];
-//
-//    for (auto s : stateprob) {
-////        VariableSet v=s.first;
-//     
-//        VariableSet v=saphari_mmdp.vecStateEnum[s.first];
-//        cout<<v.toString();
-//    }
-//    saphari_mmdp.enumerateFunctions("prova.pomdp");
-//    saphari_mmdp.printTransitionFunction();
+
+
+
+    saphari_mmdp.printQValues(initial_state);
+    //    saphari_mmdp.printRewardFunction();
+    //    PairStateAction p;
+    VariableSet para = saphari_mmdp.convertToParametrizedState(initial_state);
+
+    int i = saphari_mmdp.mapStateEnum[para];
+    //    
+    //    p.first = saphari_mmdp.mapStateEnum.at(para);
+    //    p.second = "agentp0_move_surfacep0-agentp1_wait";
+    ////    pair<vector<string>, set<string> > r=saphari_mmdp.getSubMdpName(p.second);
+    ////    Hmdp* h=saphari_mmdp.hierarchy_map_[r.first[0]];
+    // 
+    ////    map<VariableSet,double> stateprob = h->getHierarchicTransition(initial_state,&saphari_mmdp);
+    //    StateProb stateprob=saphari_mmdp.transition[p];
+    //
+    //    for (auto s : stateprob) {
+    ////        VariableSet v=s.first;
+    //     
+    //        VariableSet v=saphari_mmdp.vecStateEnum[s.first];
+    //        cout<<v.toString();
+    //    }
+    //    saphari_mmdp.enumerateFunctions("prova.pomdp");
+    //    saphari_mmdp.printTransitionFunction();
     saphari_mmdp.simulate(7, initial_state);
-    
+
     //    
     return 0;
 }
