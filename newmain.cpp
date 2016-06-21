@@ -77,7 +77,7 @@ int main(int argc, char** argv) {
     inital_set["bracket3_isAt"] = "table";
     inital_set["gluebottle_isAt"] = "table";
     inital_set["surface1_status"] = "cleaned";
-    inital_set["surface2_status"] = "cleaned";
+    inital_set["surface2_status"] = "none";
     inital_set["surface3_status"] = "none";
 
     initial_state.set = inital_set;
@@ -107,7 +107,7 @@ int main(int argc, char** argv) {
     //    }
     //    saphari_mmdp.enumerateFunctions("prova.pomdp");
     //    saphari_mmdp.printTransitionFunction();
-    saphari_mmdp.simulate(7, initial_state);
+    saphari_mmdp.simulate(15, initial_state);
 
     //    
     return 0;
