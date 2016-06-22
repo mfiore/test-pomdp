@@ -82,11 +82,11 @@ int main(int argc, char** argv) {
     map<string, string> inital_set;
     inital_set["agent1_isAt"] = "table";
     inital_set["agent2_isAt"] = "table";
-    inital_set["bracket1_isAt"] = "table";
+    inital_set["bracket1_isAt"] = "surface1";
     inital_set["bracket2_isAt"] = "table";
     inital_set["bracket3_isAt"] = "table";
     inital_set["gluebottle_isAt"] = "table";
-    inital_set["surface1_status"] = "none";
+    inital_set["surface1_status"] = "completed";
     inital_set["surface2_status"] = "none";
     inital_set["surface3_status"] = "none";
 
@@ -102,7 +102,7 @@ int main(int argc, char** argv) {
     int i = saphari_mmdp.mapStateEnum[para];
 
     p.first = saphari_mmdp.mapStateEnum.at(para);
-    p.second = "agentp0_assemble_bracket1_surface1-agentp1_wait";
+    p.second = "agentp0_assemble_bracket1_surface2-agentp1_assemble_bracket1_surface2";
     pair<vector<string>, set<string> > r = saphari_mmdp.getSubMdpName(p.second);
     Mmdp* h =(Mmdp*) saphari_mmdp.hierarchy_map_[r.first[0]];
     
