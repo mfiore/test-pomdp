@@ -29,8 +29,9 @@
 #include "AssembleBracket.h"
 #include "AttachBracket.h"
 #include "GetObject.h"
-        #include "CleanSurface.h"
+#include "CleanSurface.h"
 #include  "GlueSurface.h"
+#include "Handover.h"
 
 using namespace std;
 
@@ -108,34 +109,34 @@ int main(int argc, char** argv) {
 
 
 
-     saphari_mmdp.printQValues(initial_state);
-//    saphari_mmdp.printRewardFunction();
-//    PairStateAction p;
-//    VariableSet para = saphari_mmdp.convertToParametrizedState(initial_state);
-//
-//    int i = saphari_mmdp.mapStateEnum[para];
-//
-//    p.first = saphari_mmdp.mapStateEnum.at(para);
-//    p.second = "agentp0_assemble_bracket1_surface2-agentp1_assemble_bracket1_surface2";
-//    pair<vector<string>, set<string> > r = saphari_mmdp.getSubMdpName(p.second);
-//    Mmdp* h = (Mmdp*) saphari_mmdp.hierarchy_map_[r.first[0]];
-//
-//    set<string> changed_mdps{"agent0", "agent1"};
-//
-//    map<string, string> super_instance;
-//    super_instance["agentp0"] = "agent1";
-//    super_instance["agentp1"] = "agent2";
-//    h->assignParametersFromActionName("agent1_assemble_bracket1_surface1-agent2_wait", changed_mdps, super_instance);
-//    //    // 
-//    map<VariableSet, double> stateprob = h->getHierarchicTransition(initial_state, &saphari_mmdp);
-//    //        StateProb stateprob=saphari_mmdp.transition[p];
-//    //
-//    for (auto s : stateprob) {
-//        VariableSet v = s.first;
-//        //     
-//        //        VariableSet v = saphari_mmdp.vecStateEnum[s.first];
-//        cout << v.toString();
-//    }
+    saphari_mmdp.printQValues(initial_state);
+    //    saphari_mmdp.printRewardFunction();
+    //    PairStateAction p;
+    //    VariableSet para = saphari_mmdp.convertToParametrizedState(initial_state);
+    //
+    //    int i = saphari_mmdp.mapStateEnum[para];
+    //
+    //    p.first = saphari_mmdp.mapStateEnum.at(para);
+    //    p.second = "agentp0_assemble_bracket1_surface2-agentp1_assemble_bracket1_surface2";
+    //    pair<vector<string>, set<string> > r = saphari_mmdp.getSubMdpName(p.second);
+    //    Mmdp* h = (Mmdp*) saphari_mmdp.hierarchy_map_[r.first[0]];
+    //
+    //    set<string> changed_mdps{"agent0", "agent1"};
+    //
+    //    map<string, string> super_instance;
+    //    super_instance["agentp0"] = "agent1";
+    //    super_instance["agentp1"] = "agent2";
+    //    h->assignParametersFromActionName("agent1_assemble_bracket1_surface1-agent2_wait", changed_mdps, super_instance);
+    //    //    // 
+    //    map<VariableSet, double> stateprob = h->getHierarchicTransition(initial_state, &saphari_mmdp);
+    //    //        StateProb stateprob=saphari_mmdp.transition[p];
+    //    //
+    //    for (auto s : stateprob) {
+    //        VariableSet v = s.first;
+    //        //     
+    //        //        VariableSet v = saphari_mmdp.vecStateEnum[s.first];
+    //        cout << v.toString();
+    //    }
     //    saphari_mmdp.enumerateFunctions("prova.pomdp");
     //    saphari_mmdp.printTransitionFunction();
     saphari_mmdp.simulate(25, initial_state);
