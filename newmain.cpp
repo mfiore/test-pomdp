@@ -29,7 +29,7 @@
 #include "AssembleBracket.h"
 #include "AttachBracket.h"
 #include "GetObject.h"
-#include "CleanSurface.h"
+        #include "CleanSurface.h"
 #include  "GlueSurface.h"
 
 using namespace std;
@@ -60,23 +60,35 @@ int main(int argc, char** argv) {
 
 
 
+    vector<string> forbidden_actions;
+
+    //same bracket can't be assigned to two different places
+    for (int i = 1; i < 4; i++) {
+        for (int j = 1; j < 4; j++) {
+            for (int k = 1; k < 4; k++) {
+                if (j == k) continue;
+                forbidden_actions.push_back("agentp0_assemble_bracket" + to_string(i) + "_" + "surface" + to_string(j) +
+                        "-agentp1_assemble_bracket" + to_string(i) + "_surface" + to_string(k));
+            }
+        }
+    }
+    //two brackets can't be assigned to the same place
+    for (int i = 1; i < 4; i++) {
+        for (int j = 1; j < 4; j++) {
+            if (i == j) continue;
+            for (int k = 1; k < 4; k++) {
+                forbidden_actions.push_back("agentp0_assemble_bracket" + to_string(i) + "_" + "surface" + to_string(k) +
+                        "-agentp1_assemble_bracket" + to_string(j) + "_surface" + to_string(k));
+            }
+        }
+    }
     Mmdp saphari_mmdp(&manager);
     saphari_mmdp.agent_hmpd_["agent0"] = new Saphari();
     saphari_mmdp.agent_hmpd_["agent1"] = new Saphari();
-    //    
+    saphari_mmdp.forbidden_actions_ = forbidden_actions;
 
     saphari_mmdp.create("agent1_saphari-agent2_saphari", false, true);
-    //    Saphari ab;
-    //    ab.create("agent1_saphari",false,true);
-    //    ab.assignParametersFromActionName("agent1_saphari");
 
-
-
-    //    Mmdp reorder_table;
-    //    reorder_table.agent_hmpd_["agent1"] = new ReorderTable();
-    //    reorder_table.agent_hmpd_["agent2"] = new ReorderTable();
-    //
-    //    reorder_table.create("agent1_reorder_table-agent2_reorder_table", true, true);
     cout << "done\n";
     VariableSet initial_state;
     map<string, string> inital_set;
@@ -94,37 +106,39 @@ int main(int argc, char** argv) {
 
 
 
-    saphari_mmdp.printQValues(initial_state);
-    //    saphari_mmdp.printRewardFunction();
-        PairStateAction p;
-    VariableSet para = saphari_mmdp.convertToParametrizedState(initial_state);
 
-    int i = saphari_mmdp.mapStateEnum[para];
 
-    p.first = saphari_mmdp.mapStateEnum.at(para);
-    p.second = "agentp0_assemble_bracket1_surface2-agentp1_assemble_bracket1_surface2";
-    pair<vector<string>, set<string> > r = saphari_mmdp.getSubMdpName(p.second);
-    Mmdp* h =(Mmdp*) saphari_mmdp.hierarchy_map_[r.first[0]];
-    
-    set<string> changed_mdps {"agent0","agent1"};
-    
-    map<string,string> super_instance;
-    super_instance["agentp0"]="agent1";
-    super_instance["agentp1"]="agent2";
-    h->assignParametersFromActionName("agent1_assemble_bracket1_surface1-agent2_wait",changed_mdps,super_instance);
-//    // 
-    map<VariableSet, double> stateprob = h->getHierarchicTransition(initial_state, &saphari_mmdp);
-    //        StateProb stateprob=saphari_mmdp.transition[p];
-    //
-    for (auto s : stateprob) {
-        VariableSet v = s.first;
-        //     
-//        VariableSet v = saphari_mmdp.vecStateEnum[s.first];
-        cout << v.toString();
-    }
+     saphari_mmdp.printQValues(initial_state);
+//    saphari_mmdp.printRewardFunction();
+//    PairStateAction p;
+//    VariableSet para = saphari_mmdp.convertToParametrizedState(initial_state);
+//
+//    int i = saphari_mmdp.mapStateEnum[para];
+//
+//    p.first = saphari_mmdp.mapStateEnum.at(para);
+//    p.second = "agentp0_assemble_bracket1_surface2-agentp1_assemble_bracket1_surface2";
+//    pair<vector<string>, set<string> > r = saphari_mmdp.getSubMdpName(p.second);
+//    Mmdp* h = (Mmdp*) saphari_mmdp.hierarchy_map_[r.first[0]];
+//
+//    set<string> changed_mdps{"agent0", "agent1"};
+//
+//    map<string, string> super_instance;
+//    super_instance["agentp0"] = "agent1";
+//    super_instance["agentp1"] = "agent2";
+//    h->assignParametersFromActionName("agent1_assemble_bracket1_surface1-agent2_wait", changed_mdps, super_instance);
+//    //    // 
+//    map<VariableSet, double> stateprob = h->getHierarchicTransition(initial_state, &saphari_mmdp);
+//    //        StateProb stateprob=saphari_mmdp.transition[p];
+//    //
+//    for (auto s : stateprob) {
+//        VariableSet v = s.first;
+//        //     
+//        //        VariableSet v = saphari_mmdp.vecStateEnum[s.first];
+//        cout << v.toString();
+//    }
     //    saphari_mmdp.enumerateFunctions("prova.pomdp");
     //    saphari_mmdp.printTransitionFunction();
-    saphari_mmdp.simulate(15, initial_state);
+    saphari_mmdp.simulate(25, initial_state);
 
     //    
     return 0;
