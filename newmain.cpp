@@ -88,12 +88,12 @@ int main(int argc, char** argv) {
         }
     }
     Mmdp saphari_mmdp(&manager);
-    saphari_mmdp.agent_hmpd_["agent0"] = new GlueSurface();
-    saphari_mmdp.agent_hmpd_["agent1"] = new CleanSurface();
+    saphari_mmdp.agent_hmpd_["agent0"] = new AssembleBracket();
+    saphari_mmdp.agent_hmpd_["agent1"] = new Wait();
     saphari_mmdp.forbidden_actions_ = forbidden_actions;
 
 //    saphari_mmdp.create("agent1_saphari-agent2_saphari", false, true);
-    saphari_mmdp.create("agent1_glue_surface1-agent2_clean_surface2", false, true);
+    saphari_mmdp.create("agent1_assemble_bracket1_surface1-agent2_wait", false, true);
     
 //    Handover h;
 //    h.create("agent2_handover_gluebottle_agent1",true, true);
@@ -101,13 +101,13 @@ int main(int argc, char** argv) {
     cout << "done\n";
     VariableSet initial_state;
     map<string, string> inital_set;
-    inital_set["agent1_isAt"] = "surface1";
+    inital_set["agent1_isAt"] = "table";
     inital_set["agent2_isAt"] = "table";
     inital_set["bracket1_isAt"] = "table";
     inital_set["bracket2_isAt"] = "table";
     inital_set["bracket3_isAt"] = "table";
-    inital_set["gluebottle_isAt"] = "agent2";
-    inital_set["surface1_status"] = "cleaned";
+    inital_set["gluebottle_isAt"] = "agent1";
+    inital_set["surface1_status"] = "glued";
     inital_set["surface2_status"] = "none";
     inital_set["surface3_status"] = "none";
 
