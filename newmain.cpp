@@ -52,6 +52,7 @@ int main(int argc, char** argv) {
     hmdp_map_1["apply"] = new AttachBracket();
     hmdp_map_1["wait"] = new Wait();
     hmdp_map_1["handover"]=new Handover();
+    hmdp_map_1["saphari"]=new Saphari();
 
     hmdp_map_2["assemble"] = new AssembleBracket();
     hmdp_map_2["clean"] = new CleanSurface();
@@ -59,6 +60,7 @@ int main(int argc, char** argv) {
     hmdp_map_2["get"] = new GetObject();
     hmdp_map_2["apply"] = new AttachBracket();
     hmdp_map_2["wait"] = new Wait();
+    hmdp_map_2["saphari"] = new Saphari();
 
     vector<map<string, Hmdp* > > v_hmdp{hmdp_map_1, hmdp_map_2};
     MmdpManager manager(v_hmdp);
@@ -88,12 +90,12 @@ int main(int argc, char** argv) {
         }
     }
     Mmdp saphari_mmdp(&manager);
-    saphari_mmdp.agent_hmpd_["agent0"] = new AssembleBracket();
-    saphari_mmdp.agent_hmpd_["agent1"] = new Wait();
+    saphari_mmdp.agent_hmpd_["agent0"] = new Saphari();
+    saphari_mmdp.agent_hmpd_["agent1"] = new Saphari();
     saphari_mmdp.forbidden_actions_ = forbidden_actions;
 
 //    saphari_mmdp.create("agent1_saphari-agent2_saphari", false, true);
-    saphari_mmdp.create("agent1_assemble_bracket1_surface1-agent2_wait", false, true);
+    saphari_mmdp.create("agent1_saphari-agent2_saphari", false, true);
     
 //    Handover h;
 //    h.create("agent2_handover_gluebottle_agent1",true, true);
@@ -106,8 +108,8 @@ int main(int argc, char** argv) {
     inital_set["bracket1_isAt"] = "table";
     inital_set["bracket2_isAt"] = "table";
     inital_set["bracket3_isAt"] = "table";
-    inital_set["gluebottle_isAt"] = "agent1";
-    inital_set["surface1_status"] = "glued";
+    inital_set["gluebottle_isAt"] = "table";
+    inital_set["surface1_status"] = "none";
     inital_set["surface2_status"] = "none";
     inital_set["surface3_status"] = "none";
 
@@ -129,7 +131,12 @@ int main(int argc, char** argv) {
 //    h->printQValues(v_par);
 //
 //    h->printRewardFunction();
+//    Hmdp* h=saphari_mmdp.hierarchy_map_["agent_get_object-agent_wait"];
+//    cout<<h->vecStateEnum[16].toString();
+//    map<VariableSet,double> h_trans=h->getHierarchicTransition(initial_state,&saphari_mmdp);
     saphari_mmdp.printQValues(initial_state);
+    saphari_mmdp.chooseHierarchicAction(initial_state);
+//    saphari_mmdp.getHierarchicTransition(initial_state,"agentp0_get_bracketp0-agentp1_wait",);
 //        saphari_mmdp.printRewardFunction();
     //    PairStateAction p;
     //    VariableSet para = saphari_mmdp.convertToParametrizedState(initial_state);
