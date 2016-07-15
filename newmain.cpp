@@ -104,14 +104,14 @@ int main(int argc, char** argv) {
     VariableSet initial_state;
     map<string, string> inital_set;
     inital_set["agent1_isAt"] = "table";
-    inital_set["agent2_isAt"] = "surface2";
-    inital_set["bracket1_isAt"] = "table";
-    inital_set["bracket2_isAt"] = "agent2";
+    inital_set["agent2_isAt"] = "table";
+    inital_set["bracket1_isAt"] = "agent2";
+    inital_set["bracket2_isAt"] = "table";
     inital_set["bracket3_isAt"] = "table";
     inital_set["gluebottle_isAt"] = "agent2";
     inital_set["surface1_status"] = "none";
-    inital_set["surface2_status"] = "none";
-    inital_set["surface3_status"] = "none";
+    inital_set["surface2_status"] = "cleaned";
+    inital_set["surface3_status"] = "glued";
 
     initial_state.set = inital_set;
 
@@ -121,7 +121,7 @@ int main(int argc, char** argv) {
 
     saphari_mmdp.printQValues(initial_state);
 
-    int r = saphari_mmdp.getReward(para, "agentp0_assemble_bracket1_surface1-agentp1_assemble_bracket2_surface2");
+     int r = saphari_mmdp.getReward(para, "agentp0_assemble_bracket1_surface1-agentp1_assemble_bracket2_surface2");
     //    VarStateProb v_succ = saphari_mmdp.getFutureStates(para, "agentp0_handover_gluebottle_agentp1");
     //    for (auto s : v_succ) {
     //        int i = saphari_mmdp.mapStateEnum[s.first];
